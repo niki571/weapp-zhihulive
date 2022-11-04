@@ -1,0 +1,6 @@
+aiohttp==3.8.3
+SQLAlchemy==1.4.42
+PyMySQL==1.0.2
+Sanic==22.9.0
+marshmallow==3.18.0
+elasticsearch-dsl==7.4.0
