@@ -3,8 +3,7 @@ from datetime import date, timedelta
 
 from elasticsearch_dsl import (
     Document, Date, Integer, Text, Float, Boolean, Keyword, SF, Q, A,
-    Completion, Long)
-from elasticsearch_dsl.connections import connections
+    Completion, Long, connections)
 from elasticsearch_dsl.analysis import CustomAnalyzer
 
 from config import SEARCH_FIELDS, LIVE_URL
@@ -12,6 +11,7 @@ from .speaker import User, session
 from .topic import Topic
 
 connections.create_connection(hosts=['localhost'])
+
 gauss_sf = SF('gauss', starts_at={
     'origin': 'now', 'offset': '7d', 'scale': '10d'
 })
@@ -46,8 +46,8 @@ class Live(Document):
     liked_num = Integer()
     topics = Keyword()
     live_suggest = Completion(analyzer=ik_analyzer)
-    cover = Text(index='not_analyzed')
-    zhuanlan_url = Text(index='not_analyzed')
+    cover = Text(index='false')
+    zhuanlan_url = Text(index='false')
 
     @property
     def id(self):

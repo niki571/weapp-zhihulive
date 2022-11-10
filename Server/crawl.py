@@ -10,8 +10,7 @@ from datetime import datetime
 from urllib.parse import urlparse, parse_qsl, urlunparse, urlencode
 
 import aiohttp
-from elasticsearch_dsl import Q
-from elasticsearch_dsl.connections import connections
+from elasticsearch_dsl import (Q, connections)
 from elasticsearch.exceptions import NotFoundError
 
 from models import User, Live, Topic, session

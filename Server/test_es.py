@@ -1,10 +1,15 @@
+'''
+Author: wuqianying
+Date: 2022-10-29 11:21:47
+LastEditors: wuqianying
+LastEditTime: 2022-11-10 19:13:30
+'''
 '''测试异步es是否运行正常'''
+
+
 import asyncio
-from elasticsearch_dsl.connections import  connections
-
+from elasticsearch_dsl import connections
 from models.live import Live, SEARCH_FIELDS, init as live_init
-
-
 s = Live.search()
 es = connections.get_connection(Live._doc_type.using)
 

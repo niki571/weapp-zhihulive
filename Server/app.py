@@ -1,5 +1,5 @@
 from sanic import Sanic
-from elasticsearch_dsl.connections import connections
+from elasticsearch_dsl import connections
 
 from views.api import bp
 from views.protocol import JSONHttpProtocol
@@ -19,7 +19,6 @@ def set_loop(sanic, loop):
 async def halt_request(request):
     request.start = request.args.get('start', 0)
     request.limit = request.args.get('limit', 10)
-
 
 
 if __name__ == '__main__':
